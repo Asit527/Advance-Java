@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: 5th_jan_2026_batch
+    ports:
+      - "3307:3306"
+    networks:
+      - ecommerce-network
+
+  product-service:
+    build: .
+    container_name: product-service
+    restart: on-failure    # <-- This tells Docker to retry if MySQL isn't ready yet
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
