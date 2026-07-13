@@ -19,7 +19,7 @@ import com.kodewala.service.ProductService;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
+// git first commit through ide
 	@Autowired
 	private ProductService productService;
 
@@ -28,6 +28,7 @@ public class ProductController {
 	public ProductResponse createProduct(@RequestBody ProductRequest request) {
 		return productService.saveProduct(request);
 	}
+	
 
 	// GET ALL
 	@GetMapping
