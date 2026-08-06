@@ -1,11 +1,9 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
-    name: 11-03-order-service
-  config:
-    import: optional:configserver:http://localhost:8888
+    name: 11-04-payment-service
   datasource:
     url: jdbc:mysql://localhost:3306/5th_jan_2026_batch
     username: root
@@ -14,8 +12,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
 
 eureka:
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:8761/eureka/
