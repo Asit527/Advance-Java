@@ -1,17 +1,16 @@
 package com.kodewala.orderservice.entity;
 
-import org.springframework.data.annotation.Id;
-
+import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="11-03-order-service")
+@Table(name ="11_03_order_service")
 public class OrderEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // <--- Change AUTO to IDENTITY
 	private long id;
 	private String itemName;
 	private int quantity;

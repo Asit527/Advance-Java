@@ -4,14 +4,6 @@ server:
 spring:
   application:
     name: 11-04-payment-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/5th_jan_2026_batch
-    username: root
-    password: root123
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
   kafka:
     bootstrap-servers: localhost:9092
 
