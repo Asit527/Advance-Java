@@ -2,14 +2,15 @@ server:
   port: 8082
 
 spring:
-  application:
-    name: 11-04-payment-service
-  config:
-    import: optional:configserver:http://localhost:8888
   kafka:
     bootstrap-servers: localhost:9092
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment_db
+    username: root
+    password: root
+
 eureka:
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:8761/eureka/
