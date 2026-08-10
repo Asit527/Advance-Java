@@ -4,14 +4,17 @@ server:
 spring:
   application:
     name: 11-03-order-service
+
   datasource:
     url: jdbc:mysql://localhost:3306/5th_jan_2026_batch
     username: root
     password: root123
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
   kafka:
     bootstrap-servers: localhost:9092
 
@@ -19,3 +22,14 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentService:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 2
+        automaticTransitionFromOpenToHalfOpenEnabled: true
