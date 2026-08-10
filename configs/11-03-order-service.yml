@@ -15,7 +15,6 @@ spring:
       ddl-auto: update
     show-sql: true
 
-  # Removed the extra "spring:" key here and fixed indentation
   kafka:
     bootstrap-servers: localhost:9092
     producer:
@@ -33,6 +32,7 @@ resilience4j:
       paymentService:
         slidingWindowType: COUNT_BASED
         slidingWindowSize: 5
+        minimumNumberOfCalls: 5
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 2
