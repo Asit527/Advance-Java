@@ -15,8 +15,12 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  # Removed the extra "spring:" key here and fixed indentation
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 eureka:
   client:
