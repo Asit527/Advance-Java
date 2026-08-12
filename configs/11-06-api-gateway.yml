@@ -5,21 +5,22 @@ spring:
   application:
     name: 11-06-api-gateway
 
-  cloud:
-    gateway:
-      mvc:
-        routes:
-          - id: order-service
-            uri: lb://11-03-ORDER-SERVICE
-            predicates:
-              - Path=/orders,/orders/**
-
   data:
     redis:
       host: localhost
       port: 6379
 
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://11-03-ORDER-SERVICE
+          predicates:
+            - Path=/orders,/orders/**
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
