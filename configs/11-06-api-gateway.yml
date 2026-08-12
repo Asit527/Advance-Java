@@ -16,10 +16,9 @@ spring:
         webflux:
           routes:
             - id: order-service
-              uri: lb://11-03-ORDER-SERVICE
+              uri: lb://11-03-order-service
               predicates:
                 - Path=/orders,/orders/**
-
               filters:
                 - name: RequestRateLimiter
                   args:
